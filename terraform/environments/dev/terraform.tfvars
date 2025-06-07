@@ -1,0 +1,17 @@
+location            = "westeurope"
+resource_group_name = "dev_aks-pasir"
+cluster_name        = "k8s"
+dns_prefix          = "k8s-dns"
+subscription_id     = "995b3dba-be95-4348-b8a5-f7d379ccea2f"
+kubernetes_version  = "1.31.8"
+node_count          = 1
+vm_size             = "Standard_D2ps_v6"
+os_disk_size_gb     = 30
+max_pods            = 30
+network_plugin      = "azure"
+load_balancer_sku   = "standard"
+outbound_type       = "loadBalancer"
+service_cidr        = "10.0.0.0/16"
+dns_service_ip      = "10.0.0.10"
+identity_type       = "SystemAssigned"
+tags                = {}
