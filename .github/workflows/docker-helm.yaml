@@ -60,7 +60,7 @@ jobs:
       - name: Build and Push WebApp Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .  
+          context: ./app/src
           platforms: linux/amd64,linux/arm64  
           # file: ${{ env.WEBAPP_DOCKERFILE }}
           file: ./app/src/Dockerfile
@@ -71,7 +71,7 @@ jobs:
       - name: Build and Push MySQL Docker Image
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: ./app/src/services/db
           platforms: linux/amd64,linux/arm64
           # file: ${{ env.MYSQL_DOCKERFILE }}
           file: ./app/src/services/db/Dockerfile
