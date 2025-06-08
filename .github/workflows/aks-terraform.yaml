@@ -6,7 +6,7 @@ on:
       environment:
         description: 'Choose the environment (e.g., dev, prod)'
         required: false
-        default: 'dev'  # We default to 'dev' if no input is provided
+        default: 'dev'  # Default to 'dev' if no input is provided
 
 #  push:
 #    branches:
