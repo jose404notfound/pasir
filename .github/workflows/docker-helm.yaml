@@ -79,14 +79,17 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/mysql-custom:1.0
           push: true
 
+      - name: Create kubeconfig file
+        run: echo "${{ secrets.KUBECONFIG }}" > ${{ github.workspace }}/kubeconfig
+
       - name: Deploy with Helm
-        run: |
-          helm upgrade --install ${{ github.event.inputs.environment }} ./helm --namespace default \
-            --set name=foobar \
-            -f values.yaml \
-            -f values-secret.yaml
         env:
-          KUBECONFIG: '${{ secrets.KUBECONFIG }}'
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig  # Set the kubeconfig environment variable
+        run: |
+          helm upgrade --install my-app ./helm --namespace default \
+            --set name=foobar \
+            -f ./helm/values.yaml \
+            -f ./helm/values-secret.yaml
 
       # Step 9: Wait for 20 seconds to ensure deployment completes
       - name: Wait for 20 seconds
