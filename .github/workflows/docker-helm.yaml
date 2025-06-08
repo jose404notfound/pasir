@@ -62,7 +62,8 @@ jobs:
         with:
           context: .  
           platforms: linux/amd64,linux/arm64  
-          file: ${{ env.WEBAPP_DOCKERFILE }}
+          # file: ${{ env.WEBAPP_DOCKERFILE }}
+          file: ./app/src/Dockerfile
           # tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.WEBAPP_IMAGE }}
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp:1.0
           push: true
@@ -72,7 +73,8 @@ jobs:
         with:
           context: .
           platforms: linux/amd64,linux/arm64
-          file: ${{ env.MYSQL_DOCKERFILE }}
+          # file: ${{ env.MYSQL_DOCKERFILE }}
+          file: ./app/src/services/db/Dockerfile
           # tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.MYSQL_IMAGE }}
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysql-custom:1.0
           push: true
