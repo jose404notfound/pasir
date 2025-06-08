@@ -76,7 +76,7 @@ jobs:
           # file: ${{ env.MYSQL_DOCKERFILE }}
           file: ./app/src/services/db/Dockerfile
           # tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.MYSQL_IMAGE }}
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mysqlcustom:1.0
+          tags: ${{ secrets.DOCKER_USERNAME }}/mysql-custom:1.0
           push: true
 
       - name: Deploy with Helm
