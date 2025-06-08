@@ -60,9 +60,9 @@ jobs:
       # This allows us to run the application on different platforms, ensuring compatibility with AKS and take the changes made in the Dockerfiles for deployment
       - name: Build and Push Docker Images
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 -f ${{ env.WEBAPP_DOCKERFILE }} -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.WEBAPP_IMAGE }} --push .
+          docker buildx build --platform linux/amd64,linux/arm64 -f ${{ env.WEBAPP_DOCKERFILE }} -t ${{ secrets.DOCKER_USERNAME }}/${{ env.WEBAPP_IMAGE }} --push .
 
-          docker buildx build --platform linux/amd64,linux/arm64 -f ${{ env.MYSQL_DOCKERFILE }} -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.MYSQL_IMAGE }} --push .
+          docker buildx build --platform linux/amd64,linux/arm64 -f ${{ env.MYSQL_DOCKERFILE }} -t ${{ secrets.DOCKER_USERNAME }}/${{ env.MYSQL_IMAGE }} --push .
         env:
           DOCKER_BUILDKIT: 1
           DOCKER_CLI_EXPERIMENTAL: enabled
