@@ -29,10 +29,12 @@ jobs:
         uses: azure/cli@v2
         with:
           azcliversion: latest
+          inlineScript: |
+            az --version
 
       # The default version installs the latest version of Terraform CLI.
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1 
+        uses: hashicorp/setup-terraform@v3
 
       # Step 5: Terraform fmt (Format all Terraform files)
       # This step ensures that all Terraform configuration files are formatted correctly, making them more readable and consistent.
