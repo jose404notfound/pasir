@@ -13,6 +13,7 @@ service:
   type: LoadBalancer
   port: 80
 
+# For testing in my development environment, we disable ingress and use LoadBalancer service type with the Apache server for redirection
 ingress:
   enabled: false
   annotations: 
