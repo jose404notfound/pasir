@@ -94,7 +94,7 @@ jobs:
       # Step 9: Wait for 20 seconds to ensure deployment completes
       - name: Wait for 20 seconds
         run: |
-          sleep 20
+          sleep 100
 
       # Step 10: Check the status of all resources in the AKS cluster
       - name: Check the status of all resources
