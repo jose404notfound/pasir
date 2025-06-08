@@ -76,21 +76,13 @@ jobs:
           push: true
 
       - name: Deploy with Helm
-        uses: deliverybot/helm@v1
-        with:
-          release: ${{ github.event.inputs.environment }}  
-          namespace: 'default'   
-          chart: './helm/'      
-          # token: '${{ github.token }}'  
-          values: |
-            name: foobar   # Puedes poner tus valores específicos aquí
-          value-files: >
-            [
-              "values.yaml", 
-              "values-secret.yaml"
-            ]
+        run: |
+          helm upgrade --install ${{ github.event.inputs.environment }} ./helm --namespace default \
+            --set name=foobar \
+            -f values.yaml \
+            -f values-secret.yaml
         env:
-          KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+          KUBECONFIG: '${{ secrets.KUBECONFIG }}'
 
       # Step 9: Wait for 20 seconds to ensure deployment completes
       - name: Wait for 20 seconds
