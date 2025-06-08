@@ -36,6 +36,9 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Check Terraform version
+        run: terraform --version
+
       - name: Terraform fmt (Format all Terraform files)
         run: |
           terraform fmt -recursive ./terraform/environments/${{ github.event.inputs.environment }}
