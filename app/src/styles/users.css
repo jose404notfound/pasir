@@ -1,0 +1,142 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background: url('../assets/userswater.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #e0e0e0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    margin: 0.3em 0; 
+    padding: 0.8em; 
+    background-color: #2d2d2d; 
+    border: 1px solid #444; 
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px; 
+}
+
+form input, form button {
+    display: block;
+    width: 95%; 
+    margin: 0.3em auto; 
+    padding: 0.5em; 
+    font-size: 0.9em; 
+    border: 1px solid #444; 
+    border-radius: 4px;
+    background-color: #333; 
+    color: #fff; 
+}
+
+form button {
+    background-color: #444; 
+    color: #fff; 
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: bold;
+    margin-top: 0.5em;
+}
+
+form button:hover {
+    background-color: #555; 
+}
+
+p {
+    margin: 0.5em auto; 
+    padding: 0.6em;
+    width: 90%;
+    font-size: 0.9em; 
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+}
+
+p.success {
+    background-color: #28a745; 
+    color: white;
+    border: 1px solid #218838;
+}
+
+p.error {
+    background-color: #dc3545; 
+    color: white;
+    border: 1px solid #c82333;
+}
+
+#users-list {
+    margin: 0.5em auto; 
+    padding: 0.8em;
+    width: 350px; 
+    background-color: #2d2d2d; 
+    border: 1px solid #444;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#users-list h3 {
+    margin-top: 0;
+    color: #f0f0f0; 
+    text-align: center;
+}
+
+#users-list ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+#users-list li {
+    margin: 0.3em 0; 
+    padding: 0.5em;
+    color: #fff; 
+    background-color: #3a3a3a; 
+    border-radius: 4px;
+    border-left: 3px solid #555; 
+}
+
+#users-list button {
+    width: 100%;
+    margin-top: 0.8em;
+    padding: 0.5em;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#users-list button:hover {
+    background-color: #555;
+}
+
+.back-button {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #bfbfbf;
+    background-color: rgba(120, 120, 120, 0.6); 
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s;
+    user-select: none;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    color: #ffffff;
+    background-color: rgba(150, 150, 150, 0.9); 
+    cursor: pointer;
+}

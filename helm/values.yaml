@@ -1,0 +1,56 @@
+replicaCount: 1
+
+web:
+  enabled: true
+image:
+  repository: joseeegr404/webapp
+  tag: "1.0"
+  pullPolicy: Always
+
+service:
+  # If you want to use ingress, you can set the service type to ClusterIP and use the ingress resource to expose it
+  # type: ClusterIP
+  # type: NodePort
+  type: LoadBalancer
+  port: 80
+
+# For testing in my development environment, we disable ingress and use LoadBalancer service type with the Apache server for redirection
+ingress:
+  enabled: false
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    # We can add more annotations here if needed
+    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  ingressClassName: nginx
+  hosts:
+    - host: fsociety404.com
+      paths:
+        - /
+        - /welcome
+
+
+mysql:
+  enabled: true
+  image:
+    repository: joseeegr404/mysql-custom
+    tag: "1.0"
+    pullPolicy: Always
+
+# MySQL configuration associated with the secret
+  secretName: myapp-mysql-secret
+  
+  service:
+    type: ClusterIP
+    port: 3306
+
+  persistence:
+    enabled: true
+    size: 8Gi
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

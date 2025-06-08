@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background: url('../assets/homevegetation.png') no-repeat center center fixed;
+    color: #e0e0e0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-container {
+    text-align: center;
+}
+
+.title {
+    font-size: 3em;
+    color: #ffffff;
+    margin-bottom: 1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links li {
+    margin: 1em 0;
+}
+
+.links a {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #bfbfbf; 
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.links a:hover {
+    color: #ffffff; 
+}
+
+.create-user {
+    position: fixed;
+    bottom: 60px;
+    right: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #bfbfbf; 
+    background-color: rgba(47, 79, 79, 0.6); 
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    transition: color 0.3s, background-color 0.3s;
+    user-select: none;
+    z-index: 1000;
+}
+
+.create-user:hover {
+    color: #ffffff; 
+    background-color: rgba(47, 79, 79, 0.9);
+    cursor: pointer;
+}
+
+.logout-button {
+    position: fixed;
+    bottom: 15px; 
+    right: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #bfbfbf;
+    background-color: rgba(120, 120, 120, 0.6);
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    transition: all 0.3s;
+    user-select: none;
+    z-index: 1000;
+}
+
+.logout-button:hover {
+    color: #ffffff;
+    background-color: rgba(150, 150, 150, 0.9); 
+    cursor: pointer;
+}
