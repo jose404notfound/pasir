@@ -62,9 +62,7 @@ jobs:
         with:
           context: ./app/src
           platforms: linux/amd64,linux/arm64  
-          # file: ${{ env.WEBAPP_DOCKERFILE }}
           file: ./app/src/Dockerfile
-          # tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.WEBAPP_IMAGE }}
           tags: ${{ secrets.DOCKER_USERNAME }}/webapp:1.0
           push: true
           
@@ -73,9 +71,7 @@ jobs:
         with:
           context: ./app/src/services/db
           platforms: linux/amd64,linux/arm64
-          # file: ${{ env.MYSQL_DOCKERFILE }}
           file: ./app/src/services/db/Dockerfile
-          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ env.MYSQL_IMAGE }}
           tags: ${{ secrets.DOCKER_USERNAME }}/mysql-custom:1.0
           push: true
 
@@ -91,12 +87,10 @@ jobs:
             -f ./helm/values.yaml \
             -f ./helm/values-secret.yaml
 
-      # Step 9: Wait for 20 seconds to ensure deployment completes
       - name: Wait for 20 seconds
         run: |
           sleep 100
 
-      # Step 10: Check the status of all resources in the AKS cluster
       - name: Check the status of all resources
         run: |
           kubectl get all --namespace default
