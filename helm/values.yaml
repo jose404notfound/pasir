@@ -10,6 +10,7 @@ image:
 service:
   # If you want to use ingress, you can set the service type to ClusterIP and use the ingress resource to expose it
   # type: ClusterIP
+  # type: NodePort
   type: LoadBalancer
   port: 80
 
