@@ -36,34 +36,22 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # Step 5: Terraform fmt (Format all Terraform files)
-      # This step ensures that all Terraform configuration files are formatted correctly, making them more readable and consistent.
-      # It recursively formats the files in the environment directory (dev, prod, etc.) based on the input environment.
       - name: Terraform fmt (Format all Terraform files)
         run: |
           terraform fmt -recursive ./terraform/environments/${{ github.event.inputs.environment }}
 
-      # Step 6: Initialize Terraform
-      # This step initializes the Terraform configuration, downloading the necessary provider plugins, and preparing the backend for managing state.
       - name: Initialize Terraform
         run: |
-          terraform init ./terraform/environments/${{ github.event.inputs.environment }}
+          terraform init -chdir=./terraform/environments/${{ github.event.inputs.environment }}
 
-      # Step 7: Validate Terraform
-      # This step runs `terraform validate` to ensure that the configuration files are syntactically correct and that all resources are properly defined.
       - name: Validate Terraform
         run: |
-          terraform validate ./terraform/environments/${{ github.event.inputs.environment }}
+          terraform validate -chdir=./terraform/environments/${{ github.event.inputs.environment }}
 
-      # Step 8: Terraform Plan
-      # This step generates an execution plan by running `terraform plan`. It shows the changes Terraform will make to the infrastructure, which allows us to review them before applying.
       - name: Terraform Plan
         run: |
-          terraform plan -out=tfplan ./terraform/environments/${{ github.event.inputs.environment }}
+          terraform plan -chdir=./terraform/environments/${{ github.event.inputs.environment }} -out=tfplan
 
-      # Step 9: Terraform Apply
-      # This step applies the changes to the infrastructure by running `terraform apply` with the generated plan (`tfplan`).
-      # The `-auto-approve` flag automatically confirms the plan, ensuring the deployment proceeds without manual confirmation.
       - name: Terraform Apply
         run: |
-          terraform apply -auto-approve tfplan ./terraform/environments/${{ github.event.inputs.environment }}
+          terraform apply -chdir=./terraform/environments/${{ github.event.inputs.environment }} -auto-approve tfplan
